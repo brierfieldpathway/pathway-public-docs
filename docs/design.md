@@ -37,3 +37,8 @@ At a **1440px desktop width** both original prototype and rebuilt page place the
 Deliberate differences: the original fake owner selector becomes a non-interactive *Public site* label; sample internal clinical, backup and publishing guides are replaced by links to six real public resources; no private website login is simulated. The public website continues to use Starlight for non-homepage article layouts.
 
 Overall design approval is still a separate user decision, tracked in coordinator issue #17 and this repository issue #3.
+## Wayfinding path restored (16 October 2026)
+
+The selected prototype's layered hills remain the main background. A **filled, two-edged winding footpath** is now layered into the hills as a decorative inline SVG, with light paving joints and a destination sign. It broadens into the foreground and narrows towards the horizon. It replaces the missing route motif without changing the prototype-matched hero dimensions or reintroducing the dotted, tentacle-like line. On narrow screens the path is subdued behind content.
+
+No external assets or new packages were added. The visual result was checked in Chromium at desktop and phone sizes; search, article navigation and dark mode remain functional. Overall design acceptance is still open in issue #3.
