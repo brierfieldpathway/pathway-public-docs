@@ -1,28 +1,9 @@
 ---
 title: Brierfield Pathway
-description: One place to find public project information.
+description: Find the right public projects and documentation without the detour.
 template: splash
-hero:
-  tagline: A clear path to public projects, guides and shared knowledge.
-  actions:
-    - text: Start exploring
-      link: /pathway-public-docs/start-here/
-      icon: right-arrow
-      variant: primary
 ---
-import { CardGrid, LinkCard } from '@astrojs/starlight/components';
 
-:::note[Public preview]
-This website currently contains **public links and illustrative navigation only**. No private, clinical or recovery documents are hosted here.
-:::
+import PathwayHome from '../../components/PathwayHome.astro';
 
-## Explore the areas
-
-<CardGrid>
-  <LinkCard title="Brierfield Labs" href="/pathway-public-docs/labs/" description="Open-source projects and public GitHub repositories." />
-  <LinkCard title="Brierfield Publishing" href="/pathway-public-docs/publishing/" description="Public publishing information and links." />
-  <LinkCard title="Inner Pathway Counselling" href="/pathway-public-docs/inner-pathway/" description="The independent practice and its public website." />
-  <LinkCard title="Shared Services" href="/pathway-public-docs/shared-services/" description="Public shared-service information with privacy boundaries." />
-</CardGrid>
-
-Public and private documentation remain separate. All controlled documents require appropriate review before publication.
+<PathwayHome />
