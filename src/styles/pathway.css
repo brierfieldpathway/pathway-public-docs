@@ -1,5 +1,84 @@
-:root { --sl-color-accent-low:#dbf4ef; --sl-color-accent:#126c68; --sl-color-accent-high:#103e3b; --sl-color-text-accent:#126c68; --sl-color-bg:#fbfdfd; }
-:root[data-theme='dark'] { --sl-color-accent-low:#16393d; --sl-color-accent:#6ed6c8; --sl-color-accent-high:#d4faf3; --sl-color-text-accent:#6ed6c8; --sl-color-bg:#101c20; }
-.hero h1 { letter-spacing:-.045em; }
-.hero .tagline {max-width:48rem;}
-.sl-link-card {border-radius:14px;}
+/* Brierfield Pathway design language, based on the selected 15 October
+   clean-modern prototype. No external fonts, tracking or private assets. */
+:root {
+  --sl-color-accent-low: #dff1f2;
+  --sl-color-accent: #176d91;
+  --sl-color-accent-high: #103f50;
+  --sl-color-text-accent: #176d91;
+  --sl-color-bg: #f7faf9;
+  --sl-color-bg-nav: #ffffff;
+  --sl-color-bg-sidebar: #f7faf9;
+  --sl-color-text: #173340;
+  --sl-color-text-accent: #176d91;
+  --sl-color-hairline-light: #e1e9ea;
+  --sl-color-hairline: #e1e9ea;
+  --sl-font: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --pathway-card: #ffffff;
+  --pathway-heading: #173340;
+  --pathway-muted: #617783;
+  --pathway-link: #176d91;
+  --pathway-line: #e1e9ea;
+  --pathway-icon-bg: #e7f2f7;
+  --pathway-banner: #e7f4f2;
+  --pathway-banner-text: #20584d;
+  --pathway-labs: #e8f3fa;
+  --pathway-publishing: #f9f0e4;
+  --pathway-counselling: #e6f4eb;
+  --pathway-shared: #f0ebf8;
+}
+:root[data-theme="dark"] {
+  --sl-color-accent-low: #203d50;
+  --sl-color-accent: #8ccef0;
+  --sl-color-accent-high: #def4ff;
+  --sl-color-text-accent: #8ccef0;
+  --sl-color-bg: #101d27;
+  --sl-color-bg-nav: #192b35;
+  --sl-color-bg-sidebar: #14242d;
+  --sl-color-text: #ecf4f7;
+  --sl-color-hairline-light: #30434d;
+  --sl-color-hairline: #30434d;
+  --pathway-card: #192b35;
+  --pathway-heading: #ecf4f7;
+  --pathway-muted: #b5c5ce;
+  --pathway-link: #8ccef0;
+  --pathway-line: #30434d;
+  --pathway-icon-bg: #203e50;
+  --pathway-banner: #1f4843;
+  --pathway-banner-text: #d7f5e8;
+  --pathway-labs: #223b4b;
+  --pathway-publishing: #423a32;
+  --pathway-counselling: #213f37;
+  --pathway-shared: #363049;
+}
+body { background: var(--sl-color-bg); }
+.header { border-bottom: 1px solid var(--pathway-line); }
+.site-title { letter-spacing: -.035em; font-weight: 760; }
+.site-title::before {
+  content: "";
+  display: inline-block;
+  vertical-align: middle;
+  background: url('/pathway-public-docs/pathway-symbol.svg') center / contain no-repeat;
+  width: 2rem; height: 2rem; margin-inline-end: .6rem;
+}
+.content-panel:has(.pathway-home) { border-top: 0; }
+body:has(.pathway-home) { --sl-content-width: 90rem; }
+body:has(.pathway-home) .hero { display: none; }
+body:has(.pathway-home) .sl-container:has(.pathway-home) { max-width: 100%; }
+body:has(.pathway-home) .content-panel:has(.pathway-home) { padding-top: 1rem; }
+/* Let Starlight retain navigation, metadata, search and its article structure. */
+body:not(:has(.pathway-home)) .sl-markdown-content {
+  max-width: 58rem;
+  background: var(--pathway-card);
+  border: 1px solid var(--pathway-line);
+  border-radius: 17px;
+  padding: clamp(1.25rem,3vw,2.65rem);
+  box-shadow: 0 8px 30px rgba(15,54,63,.035);
+}
+body:not(:has(.pathway-home)) .sl-markdown-content :is(h1,h2,h3) { letter-spacing: -.026em; }
+body:not(:has(.pathway-home)) .sl-markdown-content p,
+body:not(:has(.pathway-home)) .sl-markdown-content li { line-height: 1.74; }
+body:not(:has(.pathway-home)) .sl-markdown-content :is(table,blockquote) { max-width: 100%; }
+@media(max-width: 50rem) {
+  body:not(:has(.pathway-home)) .sl-markdown-content { padding: 1.25rem; }
+  .site-title::before { width: 1.65rem; height: 1.65rem; }
+}

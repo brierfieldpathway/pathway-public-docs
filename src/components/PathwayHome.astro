@@ -1,0 +1,233 @@
+---
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const areas = [
+  { name: 'Brierfield Labs', icon: '⚙', eyebrow: 'Software & engineering', summary: 'Open-source software, projects and developer references.', link: base + '/labs/', color: 'labs' },
+  { name: 'Brierfield Publishing', icon: '▤', eyebrow: 'Books & publishing', summary: 'Publishing projects, public resources and useful links.', link: base + '/publishing/', color: 'publishing' },
+  { name: 'Inner Pathway Counselling', icon: '❧', eyebrow: 'Independent practice', summary: 'Public information from the independent counselling practice.', link: base + '/inner-pathway/', color: 'counselling' },
+  { name: 'Shared Services', icon: '↗', eyebrow: 'Common knowledge', summary: 'Shared guidance, with a clear distinction between public and private.', link: base + '/shared-services/', color: 'shared' }
+];
+const tasks = [
+  {name: 'Getting started', icon: '↗', summary: 'Find your area and the right public starting point.', href: base + '/start-here/', label: 'Available'},
+  {name: 'Everyday tasks', icon: '☷', summary: 'Browse useful public project resources and tools.', href: base + '/labs/public-projects/', label: 'Public links'},
+  {name: 'Troubleshooting', icon: '◉', summary: 'Find the right public project and its support channels.', href: base + '/labs/public-projects/', label: 'Public links'},
+  {name: 'Disaster recovery', icon: '◇', summary: 'Sensitive runbooks remain private and separately approved.', href: base + '/shared-services/', label: 'Restricted'}
+];
+const resources = [
+  { icon: '⌘', title: 'Explore XABL', sub: 'Language and development tools · Brierfield Labs', href: 'https://github.com/brierfieldlabs/xabl', tag: 'Public GitHub' },
+  { icon: '▤', title: 'Brierfield Publishing', sub: 'Public publishing website repository', href: 'https://github.com/brierfieldlabs/brierfield-publishing-website', tag: 'Public GitHub' },
+  { icon: '↗', title: 'Linux workstation configuration', sub: 'Debian and Linux project source code', href: 'https://github.com/brierfieldlabs/linux-config', tag: 'Public GitHub' }
+];
+---
+<div class="pathway-home">
+  <p class="pathway-preview-note"><span aria-hidden="true">✦</span> PUBLIC PREVIEW <span class="pathway-note-break">·</span> Curated public links only. No private or controlled documents are published here.</p>
+  <nav class="pathway-quick-nav" aria-label="Explore this website">
+    <a href="#pathway-organisations">By organisation</a>
+    <a href="#pathway-tasks">By task</a>
+    <a href="#pathway-resources">Public resources</a>
+    <a href={base + '/about/'}>About the project</a>
+  </nav>
+
+  <section class="pathway-hero" aria-labelledby="pathway-home-heading">
+    <div class="pathway-hero-content">
+      <div class="pathway-eyebrow"><span class="pathway-dot" aria-hidden="true"></span> SHARED DOCUMENTATION & HELP CENTRE</div>
+      <h1 id="pathway-home-heading">Find the right answer,<br />without the detour.</h1>
+      <p>Practical guidance, public projects and trusted reference points for Brierfield Labs, Brierfield Publishing, Inner Pathway Counselling and Shared Services.</p>
+      <form id="pathway-hero-search" class="pathway-search" role="search">
+        <label for="pathway-search-term" class="pathway-visually-hidden">Search public documentation</label>
+        <span class="pathway-search-icon" aria-hidden="true">⌕</span>
+        <input id="pathway-search-term" name="query" type="search" placeholder="Search projects, help sheets and documentation" autocomplete="off" />
+        <button type="submit">Search <span aria-hidden="true">→</span></button>
+      </form>
+      <div class="pathway-suggestions">
+        <span>Popular searches:</span>
+        <button type="button" data-pathway-search="XABL">XABL</button>
+        <button type="button" data-pathway-search="Linux">Linux</button>
+        <button type="button" data-pathway-search="Publishing">Publishing</button>
+      </div>
+    </div>
+    <svg class="pathway-landscape" viewBox="0 0 470 340" fill="none" aria-hidden="true" focusable="false">
+      <path d="M-9 294C117 117 211 291 337 154C395 93 444 95 497 70V351H-9Z" fill="#89bdaf" opacity=".25"/>
+      <path d="M-15 327C110 194 237 358 352 225C392 181 445 198 490 160V350H-15Z" fill="#4f9292" opacity=".25"/>
+      <path d="M155 350C245 309 269 277 303 241C344 197 314 148 376 104C397 90 418 79 456 76" stroke="#2b7286" opacity=".48" stroke-width="11" stroke-linecap="round" stroke-dasharray="4 18"/>
+      <path d="M147 350C242 310 260 284 291 243C331 188 306 148 366 100C388 82 419 70 457 64" stroke="#f9fffa" opacity=".75" stroke-width="5" stroke-linecap="round"/>
+    </svg>
+  </section>
+
+  <section class="pathway-section" id="pathway-organisations" aria-labelledby="pathway-organisations-heading">
+    <div class="pathway-section-heading">
+      <div><p class="pathway-overline">PICK YOUR DESTINATION</p><h2 id="pathway-organisations-heading">Explore by organisation</h2></div>
+      <a class="pathway-text-link" href={base + '/start-here/'}>View all areas <span aria-hidden="true">→</span></a>
+    </div>
+    <div class="pathway-areas">
+      {areas.map((area) => (
+        <a class={'pathway-area pathway-area-' + area.color} href={area.link}>
+          <span class="pathway-area-icon" aria-hidden="true">{area.icon}</span>
+          <span class="pathway-area-eyebrow">{area.eyebrow}</span>
+          <h3>{area.name}</h3>
+          <p>{area.summary}</p>
+          <span class="pathway-area-arrow" aria-hidden="true">↗</span>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <section class="pathway-section" id="pathway-tasks" aria-labelledby="pathway-tasks-heading">
+    <div class="pathway-section-heading">
+      <div><p class="pathway-overline">A DIFFERENT WAY IN</p><h2 id="pathway-tasks-heading">Find what you need by task</h2></div>
+      <span class="pathway-section-hint">Start with what you're trying to do</span>
+    </div>
+    <div class="pathway-tasks">
+      {tasks.map((task) => (
+        <a class="pathway-task" href={task.href}>
+          <span class="pathway-task-icon" aria-hidden="true">{task.icon}</span>
+          <h3>{task.name}</h3>
+          <p>{task.summary}</p>
+          <span class="pathway-task-footer">{task.label} <span aria-hidden="true">↗</span></span>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <section class="pathway-section pathway-section-last" id="pathway-resources" aria-labelledby="pathway-resources-heading">
+    <div class="pathway-section-heading">
+      <div><p class="pathway-overline">GOOD PLACES TO BEGIN</p><h2 id="pathway-resources-heading">Featured public resources</h2></div>
+      <a class="pathway-text-link" href={base + '/labs/public-projects/'}>Browse public projects <span aria-hidden="true">→</span></a>
+    </div>
+    <div class="pathway-resources">
+      {resources.map((resource) => (
+        <a class="pathway-resource" href={resource.href}>
+          <span class="pathway-resource-icon" aria-hidden="true">{resource.icon}</span>
+          <span class="pathway-resource-copy"><strong>{resource.title}</strong><small>{resource.sub}</small></span>
+          <span class="pathway-resource-tag">{resource.tag}</span>
+          <span class="pathway-resource-arrow" aria-hidden="true">↗</span>
+        </a>
+      ))}
+    </div>
+    <p class="pathway-notice-end">This preview is a directory of public information, not an approved operations library. The private documentation service and controlled publishing workflow are separate.</p>
+  </section>
+</div>
+
+<script>
+  // Open Starlight's own keyboard-accessible Pagefind search dialog.
+  // We do not create a second search index, nor rely on private data.
+  function openSiteSearch(term: string) {
+    const button = document.querySelector<HTMLButtonElement>('site-search button[data-open-modal]');
+    if (!button || button.disabled) return;
+    button.click();
+    if (term) {
+      let attempts = 0;
+      const focusInput = () => {
+        const field = document.querySelector<HTMLInputElement>('site-search dialog input');
+        if (field) {
+          field.value = term;
+          field.dispatchEvent(new Event('input', { bubbles: true }));
+          field.focus();
+        } else if (attempts++ < 20) {
+          window.setTimeout(focusInput, 80);
+        }
+      };
+      focusInput();
+    }
+  }
+  document.getElementById('pathway-hero-search')?.addEventListener('submit', (event) => {
+    event.preventDefault();
+    const input = document.querySelector<HTMLInputElement>('#pathway-search-term');
+    openSiteSearch(input?.value.trim() || '');
+  });
+  document.querySelectorAll<HTMLButtonElement>('[data-pathway-search]').forEach((button) => {
+    button.addEventListener('click', () => openSiteSearch(button.dataset.pathwaySearch || ''));
+  });
+</script>
+
+<style>
+  .pathway-home { max-width: 1380px; margin-inline: auto; color:var(--sl-color-text); }
+  .pathway-home :is(h1,h2,h3,p) {margin:0}
+  .pathway-home a {text-decoration:none;color:inherit}
+  .pathway-home a:focus-visible,.pathway-home button:focus-visible,.pathway-home input:focus-visible { outline:3px solid #48a5ba; outline-offset:3px; }
+  .pathway-visually-hidden {position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+  .pathway-preview-note {display:flex;gap:.55rem;flex-wrap:wrap;align-items:center;justify-content:center;text-align:center;font-size:.79rem;font-weight:570; padding: .8rem 1rem;margin:0 0 1rem !important; border-radius:10px;background:var(--pathway-banner);color:var(--pathway-banner-text);letter-spacing:.018em}
+  .pathway-note-break {opacity:.5}
+  .pathway-quick-nav {display:flex;flex-wrap:wrap;align-items:center;gap:1.4rem;padding:.4rem 0 1.1rem;font-size:.9rem;font-weight:650}
+  .pathway-quick-nav a {color:var(--pathway-muted);transition:color .12s ease}
+  .pathway-quick-nav a:hover {color:var(--pathway-link)}
+  .pathway-hero {min-height:335px; padding:clamp(1.8rem,4vw,3.3rem);border-radius:23px;background:linear-gradient(108deg,#e1f3ef 0%,#e3f3f0 51%,#cfe5e4 100%);color:#173d45;overflow:hidden;position:relative; isolation:isolate;}
+  .pathway-hero-content {position:relative;z-index:1;max-width:720px}
+  .pathway-eyebrow {display:flex;align-items:center;gap:.6rem;font-size:.74rem;font-weight:800;letter-spacing:.14em;color:#367880}
+  .pathway-dot {display:inline-block;width:9px;height:9px;border-radius:50%;background:#3d8d83;box-shadow:0 0 0 4px #3d8d832b}
+  .pathway-hero h1 {color:#173d45;font-size:clamp(2.2rem,4.3vw,3.55rem);letter-spacing:-.052em;line-height:1.08;margin:1.25rem 0 .85rem;max-width:690px}
+  .pathway-hero p {color:#406872;line-height:1.58;max-width:610px;margin-bottom:1.45rem}
+  .pathway-search {display:flex;align-items:center;gap:.5rem;max-width:660px;padding:.42rem;background:#fff;border:1px solid #d0e2e1;border-radius:13px;box-shadow:0 8px 32px #155b5b16;}
+  .pathway-search-icon {color:#588089;font-size:1.7rem;line-height:1;padding:0 .3rem 0 .65rem}
+  .pathway-search input {min-width:0;flex:1;font:inherit;border:0;background:transparent;padding:.55rem .15rem;color:#173d45;outline:0;font-size:.94rem}
+  .pathway-search input::placeholder {color:#71858b;opacity:1}
+  .pathway-search button {background:#196f93;color:#fff;border:0;border-radius:9px;padding:.75rem 1.3rem;font-weight:750;cursor:pointer;white-space:nowrap;}
+  .pathway-search button:hover {background:#155775}
+  .pathway-suggestions {display:flex;flex-wrap:wrap;align-items:center;gap:.48rem;margin-top:1rem;color:#486e76;font-size:.78rem}
+  .pathway-suggestions button {border:1px solid #5c9d9d50;border-radius:99px;padding:.3rem .75rem;color:#35636c;background:#ffffff99;cursor:pointer;font-size:.78rem;}
+  .pathway-suggestions button:hover {background:#fff}
+  .pathway-landscape {position:absolute;right:-1%;bottom:-14px;width:min(45%,490px);height:auto;z-index:0;pointer-events:none}
+  .pathway-section {margin-top:2.7rem;scroll-margin-top:6rem;}
+  .pathway-section-heading {display:flex;align-items:end;justify-content:space-between;gap:1rem;margin-bottom:1.12rem}
+  .pathway-overline {color:var(--pathway-link);font-size:.68rem;letter-spacing:.14em;font-weight:780;margin-bottom:.4rem !important}
+  .pathway-section h2 {font-size:clamp(1.32rem,2.3vw,1.8rem);letter-spacing:-.043em;line-height:1.18;color:var(--pathway-heading)}
+  .pathway-text-link {font-size:.82rem;font-weight:750;white-space:nowrap;color:var(--pathway-link)!important}
+  .pathway-text-link:hover {text-decoration:underline}
+  .pathway-section-hint {font-size:.8rem;color:var(--pathway-muted)}
+  .pathway-areas,.pathway-tasks {display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1rem}
+  .pathway-area,.pathway-task {position:relative;border:1px solid var(--pathway-line);border-radius:16px;padding:1.35rem;min-height:220px;box-shadow:0 6px 24px #172e3529;transition:transform .14s ease,box-shadow .14s ease,border-color .14s ease;}
+  .pathway-area:hover,.pathway-task:hover,.pathway-resource:hover {transform:translateY(-3px);border-color:#91bfc2;box-shadow:0 12px 30px #172e3526;}
+  .pathway-area-labs {background:var(--pathway-labs)}
+  .pathway-area-publishing {background:var(--pathway-publishing)}
+  .pathway-area-counselling {background:var(--pathway-counselling)}
+  .pathway-area-shared {background:var(--pathway-shared)}
+  .pathway-area-icon {width:47px;height:47px;border-radius:12px;background:var(--pathway-icon-bg);display:grid;place-items:center;font-size:1.55rem;color:var(--pathway-heading);font-weight:700;}
+  .pathway-area-eyebrow {display:block;margin-top:1rem;font-size:.67rem;font-weight:760;color:var(--pathway-muted);letter-spacing:.06em;text-transform:uppercase}
+  .pathway-area h3,.pathway-task h3 {font-size:1.06rem;letter-spacing:-.028em;line-height:1.3;color:var(--pathway-heading);margin:.32rem 0 .45rem}
+  .pathway-area p,.pathway-task p {font-size:.82rem;line-height:1.48;color:var(--pathway-muted);max-width:25ch}
+  .pathway-area-arrow {position:absolute;top:1.5rem;right:1.4rem;font-size:1.05rem;color:var(--pathway-link);}
+  .pathway-task {background:var(--pathway-card);min-height:200px}
+  .pathway-task-icon {display:grid;place-items:center;border-radius:12px;height:44px;width:44px;background:var(--pathway-icon-bg);color:var(--pathway-link);font-size:1.42rem;}
+  .pathway-task h3 {margin-top:.85rem}
+  .pathway-task-footer {position:absolute;bottom:1rem;left:1.35rem;right:1.35rem;display:flex;justify-content:space-between;align-items:center;font-size:.72rem;font-weight:700;color:var(--pathway-link)}
+  .pathway-section-last {margin-bottom:2rem}
+  .pathway-resources {display:grid;gap:.7rem}
+  .pathway-resource {display:flex;align-items:center;gap:1rem;padding:1rem 1.15rem;background:var(--pathway-card);border:1px solid var(--pathway-line);border-radius:13px;transition:transform .14s ease,border-color .14s ease;}
+  .pathway-resource-icon {width:46px;height:46px;display:grid;place-items:center;border-radius:12px;background:var(--pathway-icon-bg);color:var(--pathway-link);font-size:1.45rem;flex:none;}
+  .pathway-resource-copy {flex:1;min-width:0;display:grid;gap:.2rem}
+  .pathway-resource-copy strong {font-size:.93rem;color:var(--pathway-heading)}
+  .pathway-resource-copy small {font-size:.79rem;color:var(--pathway-muted);}
+  .pathway-resource-tag {flex:none;border-radius:999px;padding:.4rem .6rem;color:var(--pathway-link);background:var(--pathway-icon-bg);font-size:.66rem;font-weight:710}
+  .pathway-resource-arrow {color:var(--pathway-link)}
+  .pathway-notice-end {margin:1.35rem 0 0 !important;font-size:.81rem;line-height:1.55;color:var(--pathway-muted)}
+  @media(max-width:1100px) {
+    .pathway-areas,.pathway-tasks {grid-template-columns:repeat(2,minmax(0,1fr))}
+    .pathway-area {min-height:198px}
+    .pathway-landscape {width:43%;opacity:.45}
+  }
+  @media(max-width:620px) {
+    .pathway-quick-nav {gap:.8rem;font-size:.75rem;justify-content:center}
+    .pathway-hero {padding:1.55rem 1.12rem 1.4rem;min-height:0;border-radius:16px}
+    .pathway-hero h1 {font-size:clamp(1.9rem,9vw,2.8rem)}
+    .pathway-hero p {font-size:.9rem}
+    .pathway-landscape {right:-18%;width:65%;opacity:.18}
+    .pathway-search {gap:.15rem}
+    .pathway-search input {font-size:.82rem}
+    .pathway-search button {padding:.74rem .75rem;font-size:.82rem}
+    .pathway-section {margin-top:2rem}
+    .pathway-section-heading {align-items:start;flex-direction:column;gap:.5rem}
+    .pathway-areas,.pathway-tasks {gap:.65rem}
+    .pathway-area,.pathway-task {padding:1rem;min-height:205px}
+    .pathway-area h3,.pathway-task h3 {font-size:.94rem}
+    .pathway-area p,.pathway-task p {font-size:.78rem}
+    .pathway-task-footer {left:1rem;right:1rem}
+    .pathway-resource-tag {display:none}
+  }
+  @media(max-width:370px) {
+    .pathway-areas,.pathway-tasks {grid-template-columns:1fr}
+    .pathway-area,.pathway-task {min-height:175px}
+  }
+  @media(prefers-reduced-motion:reduce) {
+    .pathway-home :is(a,button) {transition:none}
+    .pathway-home :is(a,button):hover {transform:none}
+  }
+</style>
