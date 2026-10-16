@@ -5,7 +5,7 @@ export default defineConfig({
   base: '/pathway-public-docs',
   integrations: [starlight({
     title:'Brierfield Pathway',
-    favicon:'/pathway-public-docs/pathway-symbol.svg',
+    favicon:'/pathway-public-docs/brand/pathway-mark.svg',
     description:'Public project information and documentation.',
     customCss:['./src/styles/pathway.css'],
     components: { Header: './src/components/PathwayHeader.astro' },
