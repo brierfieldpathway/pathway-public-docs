@@ -21,3 +21,7 @@ The **first clean-modern** Brierfield Pathway mock-up was selected on 15 October
 Homepage cards link only to this public site or independently verified public websites/repositories. Public and private publishing gates remain entirely separate. The winding-path vector and layout in this pass are visual implementations for review, **not final approval of a brand asset**.
 
 Track related design and access decisions in the coordinator's internal issue #17. The private documentation site remains unconfigured.
+
+## Public project selection
+
+The directory is **editorially curated**. Public GitHub visibility does not automatically mean a repository belongs in documentation. Older personal experiments, learning-course forks and unrelated archival projects are excluded unless specifically approved for inclusion. Repository visibility and contents are never changed by editorial removal.
