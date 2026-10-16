@@ -41,7 +41,7 @@ const resources = [
       <div class="pathway-suggestions">
         <span>Popular searches:</span>
         <button type="button" data-pathway-search="XABL">XABL</button>
-        <button type="button" data-pathway-search="Linux">Linux</button>
+        <button type="button" data-pathway-search="Pocket Casts">Pocket Casts</button>
         <button type="button" data-pathway-search="Publishing">Publishing</button>
       </div>
     </div>
@@ -185,10 +185,10 @@ const resources = [
   .pathway-area h3,.pathway-task h3 {font-size:1.06rem;letter-spacing:-.028em;line-height:1.3;color:var(--pathway-heading);margin:.32rem 0 .45rem}
   .pathway-area p,.pathway-task p {font-size:.82rem;line-height:1.48;color:var(--pathway-muted);max-width:25ch}
   .pathway-area-arrow {position:absolute;top:1.5rem;right:1.4rem;font-size:1.05rem;color:var(--pathway-link);}
-  .pathway-task {background:var(--pathway-card);min-height:200px}
+  .pathway-task {display:flex;flex-direction:column;background:var(--pathway-card);min-height:200px}
   .pathway-task-icon {display:grid;place-items:center;border-radius:12px;height:44px;width:44px;background:var(--pathway-icon-bg);color:var(--pathway-link);font-size:1.42rem;}
   .pathway-task h3 {margin-top:.85rem}
-  .pathway-task-footer {position:absolute;bottom:1rem;left:1.35rem;right:1.35rem;display:flex;justify-content:space-between;align-items:center;font-size:.72rem;font-weight:700;color:var(--pathway-link)}
+  .pathway-task-footer {position:static;display:flex;justify-content:space-between;align-items:center;margin-top:auto;padding-top:.85rem;font-size:.72rem;font-weight:700;color:var(--pathway-link)}
   .pathway-section-last {margin-bottom:2rem}
   .pathway-resources {display:grid;gap:.7rem}
   .pathway-resource {display:flex;align-items:center;gap:1rem;padding:1rem 1.15rem;background:var(--pathway-card);border:1px solid var(--pathway-line);border-radius:13px;transition:transform .14s ease,border-color .14s ease;}
@@ -219,7 +219,6 @@ const resources = [
     .pathway-area,.pathway-task {padding:1rem;min-height:205px}
     .pathway-area h3,.pathway-task h3 {font-size:.94rem}
     .pathway-area p,.pathway-task p {font-size:.78rem}
-    .pathway-task-footer {left:1rem;right:1rem}
     .pathway-resource-tag {display:none}
   }
   @media(max-width:370px) {

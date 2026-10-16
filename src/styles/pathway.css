@@ -65,6 +65,9 @@ body:has(.pathway-home) { --sl-content-width: 90rem; }
 body:has(.pathway-home) .hero { display: none; }
 body:has(.pathway-home) .sl-container:has(.pathway-home) { max-width: 100%; }
 body:has(.pathway-home) .content-panel:has(.pathway-home) { padding-top: 1rem; }
+/* The custom splash supplies its own accessible H1 and navigation. */
+body:has(.pathway-home) h1#_top { display:none; }
+body:has(.pathway-home) main .content-panel footer { display:none; }
 /* Let Starlight retain navigation, metadata, search and its article structure. */
 body:not(:has(.pathway-home)) .sl-markdown-content {
   max-width: 58rem;
