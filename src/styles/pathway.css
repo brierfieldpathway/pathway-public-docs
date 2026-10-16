@@ -1,0 +1,5 @@
+:root { --sl-color-accent-low:#dbf4ef; --sl-color-accent:#126c68; --sl-color-accent-high:#103e3b; --sl-color-text-accent:#126c68; --sl-color-bg:#fbfdfd; }
+:root[data-theme='dark'] { --sl-color-accent-low:#16393d; --sl-color-accent:#6ed6c8; --sl-color-accent-high:#d4faf3; --sl-color-text-accent:#6ed6c8; --sl-color-bg:#101c20; }
+.hero h1 { letter-spacing:-.045em; }
+.hero .tagline {max-width:48rem;}
+.sl-link-card {border-radius:14px;}
