@@ -8,6 +8,7 @@ export default defineConfig({
     favicon:'/pathway-public-docs/pathway-symbol.svg',
     description:'Public project information and documentation.',
     customCss:['./src/styles/pathway.css'],
+    components: { Header: './src/components/PathwayHeader.astro' },
     social:[{icon:'github',label:'GitHub organisation',href:'https://github.com/brierfieldpathway'}],
     sidebar:[
       {slug:'index',label:'Welcome'},

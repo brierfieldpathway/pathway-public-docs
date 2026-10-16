@@ -1,0 +1,182 @@
+---
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const organisations = [
+  { id: 'labs', title: 'Brierfield Labs', icon: '⚙', description: 'Software development, open-source projects and technical references.', href: base + '/labs/' },
+  { id: 'publishing', title: 'Brierfield Publishing', icon: '▤', description: 'Publishing projects, public resources and related information.', href: base + '/publishing/' },
+  { id: 'inner', title: 'Inner Pathway', icon: '❧', description: 'The independent counselling practice and its public information.', href: base + '/inner-pathway/' },
+  { id: 'shared', title: 'Shared Services', icon: '↗', description: 'Common tools, project navigation and approved public information.', href: base + '/shared-services/' },
+];
+const tasks = [
+  { title: 'Getting Started', icon: '↗', description: 'Find your area and the right public starting point.', href: base + '/start-here/' },
+  { title: 'Everyday Tasks', icon: '☷', description: 'Discover useful projects and reference material.', href: base + '/labs/public-projects/' },
+  { title: 'Troubleshooting', icon: '⊙', description: 'Find a public project’s issue tracker or help resources.', href: 'https://github.com/brierfieldlabs/xabl/issues' },
+  { title: 'Disaster Recovery', icon: '◇', description: 'Sensitive recovery runbooks remain in the private documentation.', href: base + '/shared-services/', id: 'pathway-recovery' },
+];
+const resources = [
+  { title: 'Explore XABL', desc: 'A modern xBase-compatible language and development platform.', icon: '⌘', organisation: 'Brierfield Labs', href: 'https://github.com/brierfieldlabs/xabl' },
+  { title: 'XABL Text Studio guide', desc: 'Public documentation for the DOS-inspired terminal IDE.', icon: '▤', organisation: 'Brierfield Labs', href: 'https://github.com/brierfieldlabs/xabl/blob/main/docs/user/text-studio.md' },
+  { title: 'XABL architecture and design', desc: 'Published project architecture and technical decisions.', icon: '⚙', organisation: 'Brierfield Labs', href: 'https://github.com/brierfieldlabs/xabl/blob/main/docs/developer/architecture/xabl-design-decisions.md' },
+  { title: 'Pocket Casts Android fork', desc: 'Source code and information for the public Android fork.', icon: '◉', organisation: 'Brierfield Labs', href: 'https://github.com/brierfieldlabs/pocket-casts-android' },
+  { title: 'Brierfield Publishing website', desc: 'View the public website source and development history.', icon: '▤', organisation: 'Brierfield Publishing', href: 'https://github.com/brierfieldlabs/brierfield-publishing-website' },
+  { title: 'Inner Pathway Counselling website', desc: 'Official public information from the independent practice.', icon: '❧', organisation: 'Inner Pathway', href: 'https://innerpathway.co.uk' },
+];
+---
+
+<div class="pathway-home">
+  <section class="mock-hero" aria-labelledby="pathway-home-heading">
+    <div class="mock-hero-content">
+      <p class="mock-eyebrow">SHARED DOCUMENTATION AND HELP CENTRE</p>
+      <h1 id="pathway-home-heading">Find the right answer,<br />without the detour.</h1>
+      <p class="mock-hero-intro">Practical guides, official references and public technical knowledge for Brierfield Labs, Brierfield Publishing and Inner Pathway.</p>
+      <form class="mock-hero-search" id="pathway-hero-search" role="search">
+        <label class="mock-visually-hidden" for="pathway-search-term">Search the public documentation</label>
+        <input id="pathway-search-term" type="search" placeholder="Search guides, help sheets and reference material" autocomplete="off"/>
+        <button type="submit">Search</button>
+      </form>
+      <div class="mock-popular">Popular searches:
+        <button type="button" data-pathway-search="XABL">XABL</button>
+        <button type="button" data-pathway-search="Pocket Casts">Pocket Casts</button>
+        <button type="button" data-pathway-search="publishing">publishing</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="mock-section" id="pathway-organisations" aria-labelledby="mock-org-title">
+    <div class="mock-section-head"><h2 id="mock-org-title">Explore by organisation</h2><a class="mock-more" href={base + '/start-here/'}>View all areas <span aria-hidden="true">→</span></a></div>
+    <div class="mock-grid mock-grid-org">
+      {organisations.map(org => (
+        <a class={'mock-tile mock-org-' + org.id} href={org.href}>
+          <span class="mock-tile-icon" aria-hidden="true">{org.icon}</span>
+          <h3>{org.title}</h3>
+          <p>{org.description}</p>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <section class="mock-section" id="pathway-tasks" aria-labelledby="mock-tasks-title">
+    <div class="mock-section-head"><h2 id="mock-tasks-title">Find what you need by task</h2></div>
+    <div class="mock-grid mock-grid-tasks">
+      {tasks.map(task => (
+        <a class="mock-tile mock-task-tile" href={task.href} id={task.id}>
+          <span class="mock-tile-icon" aria-hidden="true">{task.icon}</span>
+          <h3>{task.title}</h3>
+          <p>{task.description}</p>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <section class="mock-section mock-resources-section" id="pathway-resources" aria-labelledby="mock-resources-title">
+    <div class="mock-section-head"><h2 id="mock-resources-title">Popular resources</h2><span class="mock-more">{resources.length} public resources</span></div>
+    <div class="mock-guide-list">
+      {resources.map(resource => (
+        <a class="mock-guide" href={resource.href}>
+          <span class="mock-guide-icon" aria-hidden="true">{resource.icon}</span>
+          <span class="mock-guide-main"><strong>{resource.title}</strong><small>{resource.desc}</small></span>
+          <span class="mock-guide-tag">{resource.organisation}</span>
+          <span class="mock-guide-arrow" aria-hidden="true">›</span>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <footer class="mock-footer">Brierfield Pathway · Public preview · Only curated public information is available here · Private documentation requires separate authorisation</footer>
+</div>
+
+<script>
+  // Reuse the real Starlight/Pagefind search. The prototype's fake identities
+  // and fake approved procedures are deliberately not carried into the site.
+  function openSearch(term: string) {
+    const open = document.querySelector<HTMLButtonElement>('site-search button[data-open-modal]');
+    if (!open || open.disabled) return;
+    open.click();
+    if (!term) return;
+    let attempts = 0;
+    function enterQuery() {
+      const input = document.querySelector<HTMLInputElement>('site-search dialog input');
+      if (input) {
+        input.value = term;
+        input.dispatchEvent(new Event('input', { bubbles: true }));
+        input.focus();
+      } else if (++attempts < 25) {
+        window.setTimeout(enterQuery, 80);
+      }
+    }
+    enterQuery();
+  }
+  document.querySelector<HTMLFormElement>('#pathway-hero-search')?.addEventListener('submit', (event) => {
+    event.preventDefault();
+    openSearch(document.querySelector<HTMLInputElement>('#pathway-search-term')?.value.trim() || '');
+  });
+  document.querySelectorAll<HTMLButtonElement>('[data-pathway-search]').forEach(button => {
+    button.addEventListener('click', () => openSearch(button.dataset.pathwaySearch || ''));
+  });
+</script>
+
+<style>
+  .pathway-home {max-width:1380px;margin:auto;padding:0 32px;color:var(--pathway-heading);font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;}
+  .pathway-home :is(h1,h2,h3,p) {margin:0;}
+  .pathway-home a {color:inherit;text-decoration:none}
+  .pathway-home :is(a,button,input):focus-visible {outline:3px solid #70c9e5;outline-offset:3px;}
+  .mock-visually-hidden {position:absolute;width:1px;height:1px;clip:rect(0,0,0,0);overflow:hidden;white-space:nowrap;}
+  .mock-hero {margin-top:35px;min-height:292px;border-radius:23px;padding:47px 51px 38px;position:relative;overflow:hidden;isolation:isolate;background:linear-gradient(110deg,rgba(224,242,239,.96) 0%,rgba(227,242,242,.96) 52%,rgba(205,225,224,.65) 100%),radial-gradient(ellipse at 85% 110%,#7babb0 0%,transparent 47%);color:#173d45;}
+  .mock-hero::after {content:"";position:absolute;right:-35px;bottom:-115px;width:500px;height:285px;border-radius:55% 45% 0 0;transform:rotate(-13deg);background:linear-gradient(135deg,rgba(78,144,143,.15),rgba(58,125,141,.36));box-shadow:-80px -13px 0 rgba(105,167,153,.12),-150px -35px 0 rgba(145,194,168,.18);pointer-events:none;z-index:-1;}
+  .mock-hero-content {position:relative;z-index:1;max-width:710px;}
+  .mock-eyebrow {line-height:normal;text-transform:uppercase;font-size:12px;font-weight:780;letter-spacing:.14em;color:#367880;}
+  .mock-hero h1 {font-size:clamp(30px,4vw,46px);line-height:1.13;letter-spacing:-.045em;color:#173d45;margin:14px 0;}
+  .mock-hero-intro {max-width:600px;line-height:1.55;margin-bottom:20px!important;color:#3f6870;}
+  .mock-hero-search {margin:0!important;line-height:normal;display:flex;max-width:630px;gap:8px;background:#fff;border:1px solid #d3e4e5;border-radius:13px;padding:6px;}
+  .mock-hero-search input {flex:1;min-width:0;padding:10px;border:0;outline:0;color:#173340;font:inherit;background:transparent;}
+  .mock-hero-search input::placeholder {color:#7d8789;}
+  .mock-hero-search button {line-height:normal;cursor:pointer;border:0;background:#196f93;color:#fff;border-radius:9px;padding:11px 22px;font:inherit;font-weight:680;}
+  .mock-hero-search button:hover {background:#145775;}
+  .mock-popular {line-height:normal;margin-top:13px;font-size:12px;color:#456a72;}
+  .mock-popular button {line-height:normal;cursor:pointer;border:1px solid rgba(51,110,119,.2);border-radius:99px;background:rgba(255,255,255,.55);padding:5px 11px;margin:0 3px;color:#35606c;font-size:12px;}
+  .mock-section {margin-top:35px;scroll-margin-top:12rem;}
+  .mock-section-head {display:flex;justify-content:space-between;align-items:center;gap:1rem;margin-bottom:15px;}
+  .mock-section-head h2 {font-size:23px;font-weight:750;line-height:1.25;letter-spacing:-.035em;color:var(--pathway-heading);}
+  .mock-more {color:var(--pathway-link);font-size:13px;font-weight:660;text-align:right;}
+  .mock-more:hover {text-decoration:underline;}
+  .mock-grid {display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;}
+  .mock-tile {display:block;border:1px solid var(--pathway-line);border-radius:16px;background:var(--pathway-card);padding:22px;min-height:146px;text-align:left;box-shadow:0 8px 30px rgba(15,54,63,.045);transition:transform .15s,border-color .15s;}
+  .mock-tile:hover,.mock-guide:hover {transform:translateY(-2px);border-color:#8cc6d3;}
+  .mock-tile-icon {display:block;font-size:23px;line-height:1.25;min-height:27px;color:var(--pathway-heading);}
+  .mock-tile h3 {font-size:17px;letter-spacing:-.025em;margin:12px 0 6px;font-weight:750;line-height:1.24;color:var(--pathway-heading);}
+  .mock-tile p {font-size:13px;line-height:1.55;color:var(--pathway-muted);}
+  .mock-org-labs {background:var(--pathway-labs);}
+  .mock-org-publishing {background:var(--pathway-publishing);}
+  .mock-org-inner {background:var(--pathway-counselling);}
+  .mock-org-shared {background:var(--pathway-shared);}
+  .mock-task-tile {min-height:146px;}
+  .mock-resources-section {margin-bottom:46px;}
+  .mock-guide-list {display:grid;gap:10px;}
+  .mock-guide {display:flex;align-items:center;gap:15px;width:100%;padding:15px 20px;border:1px solid var(--pathway-line);border-radius:13px;background:var(--pathway-card);text-align:left;transition:transform .15s,border-color .15s;}
+  .mock-guide-icon {flex:none;display:grid;place-items:center;width:43px;height:43px;border-radius:12px;background:var(--pathway-icon-bg);font-size:21px;color:var(--pathway-heading);}
+  .mock-guide-main {flex:1;min-width:0;display:grid;gap:4px;}
+  .mock-guide-main strong {font-size:15px;font-weight:750;color:var(--pathway-heading);line-height:1.25;}
+  .mock-guide-main small {font-size:13px;color:var(--pathway-muted);line-height:1.3;}
+  .mock-guide-tag {font-size:11px;background:var(--pathway-icon-bg);padding:7px 10px;border-radius:99px;color:var(--pathway-link);font-weight:650;white-space:nowrap;}
+  .mock-guide-arrow {color:var(--pathway-heading);}
+  .mock-footer {border-top:1px solid var(--pathway-line);padding:32px 0 40px;color:var(--pathway-muted);font-size:12px;line-height:1.5;}
+  @media(max-width:1100px) {.mock-grid {grid-template-columns:repeat(2,minmax(0,1fr));}}
+  @media(max-width:740px) {
+    .pathway-home {padding:0 15px;}
+    .mock-hero {padding:30px 23px;min-height:0;margin-top:16px;}
+    .mock-hero::after {opacity:.28;}
+    .mock-grid {gap:10px;}
+    .mock-tile {padding:14px;min-height:148px;}
+    .mock-tile h3 {font-size:15px;}
+    .mock-section-head h2 {font-size:20px;}
+    .mock-guide {padding:12px;}
+    .mock-guide-tag {display:none;}
+    .mock-hero-search button {padding:10px 14px;}
+  }
+  @media(max-width:365px) {
+    .mock-hero {padding:24px 15px;}
+    .mock-grid {grid-template-columns:repeat(2,minmax(0,1fr));}
+    .mock-tile {padding:12px;}
+    .mock-tile h3 {font-size:14px;}
+  }
+  @media(prefers-reduced-motion:reduce) {.mock-tile,.mock-guide {transition:none;transform:none!important;}}
+</style>
