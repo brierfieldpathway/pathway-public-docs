@@ -39,33 +39,49 @@ const resources = [
         <button type="button" data-pathway-search="publishing">publishing</button>
       </div>
     </div>
-    <!-- A real widening footpath, drawn within the original layered hills. -->
-    <svg class="mock-footpath" viewBox="0 0 500 330" aria-hidden="true" focusable="false">
+    <!-- A broad footpath in perspective, not a dotted line or narrow flourish. -->
+    <svg class="mock-footpath" viewBox="0 0 600 360" fill="none" aria-hidden="true" focusable="false">
       <defs>
-        <linearGradient id="mock-footpath-surface" x1="380" y1="115" x2="290" y2="335" gradientUnits="userSpaceOnUse">
-          <stop stop-color="#e8f2e8"/>
-          <stop offset="1" stop-color="#faf7e9"/>
+        <linearGradient id="mock-trail-ground" x1="480" y1="90" x2="280" y2="355" gradientUnits="userSpaceOnUse">
+          <stop stop-color="#f6f1de"/>
+          <stop offset=".58" stop-color="#f7efdb"/>
+          <stop offset="1" stop-color="#faf4e3"/>
         </linearGradient>
-        <clipPath id="mock-footpath-shape">
-          <path d="M385 114C379 140 347 159 344 186C339 210 372 226 342 250C316 276 253 308 177 344H404C423 316 416 292 388 272C367 256 367 237 394 211C418 189 425 170 415 143L401 114Z"/>
+        <path id="mock-trail-outline" d="M468 75
+          C457 110 408 133 414 163
+          C416 184 361 203 308 218
+          C247 239 239 270 179 299
+          C124 326 89 342 45 369
+          L588 369
+          C564 335 508 302 447 269
+          C396 242 400 236 426 211
+          C469 177 503 139 493 107
+          L484 75 Z"/>
+        <clipPath id="mock-trail-clip">
+          <use href="#mock-trail-outline"/>
         </clipPath>
       </defs>
-      <path d="M385 114C379 140 347 159 344 186C339 210 372 226 342 250C316 276 253 308 177 344H404C423 316 416 292 388 272C367 256 367 237 394 211C418 189 425 170 415 143L401 114Z"
-        fill="url(#mock-footpath-surface)" opacity=".94"/>
-      <g fill="none" clip-path="url(#mock-footpath-shape)" stroke="#88ada5" opacity=".45" stroke-width="2.2" stroke-linecap="round">
-        <path d="M174 323C259 300 337 302 412 317"/>
-        <path d="M271 278C319 267 365 266 399 274"/>
-        <path d="M327 242C353 237 373 237 391 242"/>
-        <path d="M341 201C358 201 379 201 397 198"/>
-        <path d="M365 167C381 167 399 163 411 158"/>
+      <!-- The warm, light trail is broad at the front and converges at the distant sign. -->
+      <use href="#mock-trail-outline" fill="url(#mock-trail-ground)" stroke="#679d94" stroke-width="3.5" stroke-linejoin="round"/>
+      <!-- Staggered stone joins show that this is a walkable pathway, not a squiggle. -->
+      <g clip-path="url(#mock-trail-clip)" stroke="#b3b69e" stroke-width="2.6" opacity=".68" stroke-linecap="round">
+        <path d="M58 340C184 311 407 313 581 344"/>
+        <path d="M146 299C262 276 370 281 493 298"/>
+        <path d="M240 255C308 239 380 246 448 264"/>
+        <path d="M309 219C350 211 397 216 441 229"/>
+        <path d="M373 183C403 176 435 181 467 192"/>
+        <path d="M413 146C439 146 469 143 492 150"/>
+        <path d="M459 105C468 109 481 108 496 108"/>
       </g>
-      <path d="M385 114C379 140 347 159 344 186C339 210 372 226 342 250C316 276 253 308 177 344"
-        stroke="#6b9e96" fill="none" opacity=".75" stroke-width="3" stroke-linecap="round"/>
-      <path d="M401 114C415 143 425 170 394 211C367 237 367 256 388 272C416 292 423 316 404 344"
-        stroke="#6b9e96" fill="none" opacity=".75" stroke-width="3" stroke-linecap="round"/>
-      <g opacity=".82" stroke="#367974" stroke-linejoin="round">
-        <path d="M394 115V87" stroke-width="3.5" stroke-linecap="round"/>
-        <path d="M394 87H431L418 99H394Z" fill="#4c9189" stroke-width="1.5"/>
+      <!-- Grass along the trail edges gives a readable scale and destination. -->
+      <g stroke="#5f9889" stroke-width="3" stroke-linecap="round" opacity=".8">
+        <path d="M143 317l-9-13m9 13 3-16m-3 16 14-12"/>
+        <path d="M524 306l-10-12m10 12 3-17m-3 17 11-12"/>
+        <path d="M293 225l-7-10m7 10 2-12"/>
+      </g>
+      <g stroke="#367974" stroke-linejoin="round" stroke-linecap="round">
+        <path d="M476 78V50" stroke-width="4"/>
+        <path d="M476 50H518L501 64H476Z" fill="#4c9189" stroke-width="1.3"/>
       </g>
     </svg>
   </section>
@@ -152,7 +168,7 @@ const resources = [
   .mock-hero {margin-top:35px;min-height:292px;border-radius:23px;padding:47px 51px 38px;position:relative;overflow:hidden;isolation:isolate;background:linear-gradient(110deg,rgba(224,242,239,.96) 0%,rgba(227,242,242,.96) 52%,rgba(205,225,224,.65) 100%),radial-gradient(ellipse at 85% 110%,#7babb0 0%,transparent 47%);color:#173d45;}
   .mock-hero::after {content:"";position:absolute;right:-35px;bottom:-115px;width:500px;height:285px;border-radius:55% 45% 0 0;transform:rotate(-13deg);background:linear-gradient(135deg,rgba(78,144,143,.15),rgba(58,125,141,.36));box-shadow:-80px -13px 0 rgba(105,167,153,.12),-150px -35px 0 rgba(145,194,168,.18);pointer-events:none;z-index:-1;}
   .mock-hero-content {position:relative;z-index:1;max-width:710px;}
-  .mock-footpath {position:absolute;right:2.5%;bottom:-2px;width:min(40%,510px);height:auto;z-index:0;pointer-events:none;}
+  .mock-footpath {position:absolute;right:-.5%;bottom:-1px;width:min(49%,640px);height:auto;z-index:0;pointer-events:none;}
 
   .mock-eyebrow {line-height:normal;text-transform:uppercase;font-size:12px;font-weight:780;letter-spacing:.14em;color:#367880;}
   .mock-hero h1 {font-size:clamp(30px,4vw,46px);line-height:1.13;letter-spacing:-.045em;color:#173d45;margin:14px 0;}
@@ -195,7 +211,7 @@ const resources = [
     .pathway-home {padding:0 15px;}
     .mock-hero {padding:30px 23px;min-height:0;margin-top:16px;}
     .mock-hero::after {opacity:.28;}
-    .mock-footpath {right:-5%;width:62%;opacity:.3;}
+    .mock-footpath {right:-8%;width:82%;opacity:.53;}
 
     .mock-grid {gap:10px;}
     .mock-tile {padding:14px;min-height:148px;}

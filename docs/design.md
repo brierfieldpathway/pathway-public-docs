@@ -42,3 +42,10 @@ Overall design approval is still a separate user decision, tracked in coordinato
 The selected prototype's layered hills remain the main background. A **filled, two-edged winding footpath** is now layered into the hills as a decorative inline SVG, with light paving joints and a destination sign. It broadens into the foreground and narrows towards the horizon. It replaces the missing route motif without changing the prototype-matched hero dimensions or reintroducing the dotted, tentacle-like line. On narrow screens the path is subdued behind content.
 
 No external assets or new packages were added. The visual result was checked in Chromium at desktop and phone sizes; search, article navigation and dark mode remain functional. Overall design acceptance is still open in issue #3.
+## Recognisable pathway artwork (16 October 2026)
+
+The earlier narrow S-shaped mark was not an effective depiction of a pathway. User review explicitly rejected it even after deployment. The new artwork is a **broad footpath with perspective**: pale stone-coloured walking surface, clear left/right edges, paving joints, grassy banks and a distant signpost. The foreground is deliberately wide and the route narrows towards the hillside horizon.
+
+The SVG is purely decorative and embedded locally. It occupies the right side of the existing prototype-matched hero. The layout geometry, Starlight search, navigation and content have not changed. Mobile rendering uses reduced prominence behind the text, but the pathway remains visible. Visual acceptance is a **separate user decision**, not proven by build/CI checks.
+
+This supersedes the prior claim that the much narrower trail artwork had resolved the design feedback.
