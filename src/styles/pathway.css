@@ -1,6 +1,6 @@
-/* Brierfield Pathway design language, based on the selected 15 October
-   clean-modern prototype. No external fonts, tracking or private assets. */
+/* Faithful foundation for the selected 15 October Pathway prototype. */
 :root {
+  --sl-nav-height: 109px;
   --sl-color-accent-low: #dff1f2;
   --sl-color-accent: #176d91;
   --sl-color-accent-high: #103f50;
@@ -9,24 +9,23 @@
   --sl-color-bg-nav: #ffffff;
   --sl-color-bg-sidebar: #f7faf9;
   --sl-color-text: #173340;
-  --sl-color-text-accent: #176d91;
   --sl-color-hairline-light: #e1e9ea;
   --sl-color-hairline: #e1e9ea;
   --sl-font: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
   --pathway-card: #ffffff;
   --pathway-heading: #173340;
-  --pathway-muted: #617783;
+  --pathway-muted: #637781;
   --pathway-link: #176d91;
   --pathway-line: #e1e9ea;
   --pathway-icon-bg: #e7f2f7;
   --pathway-banner: #e7f4f2;
   --pathway-banner-text: #20584d;
-  --pathway-labs: #e8f3fa;
-  --pathway-publishing: #f9f0e4;
-  --pathway-counselling: #e6f4eb;
-  --pathway-shared: #f0ebf8;
+  --pathway-labs: #f0f8fb;
+  --pathway-publishing: #fbf5ef;
+  --pathway-counselling: #f0f8f4;
+  --pathway-shared: #f7f4fd;
 }
-:root[data-theme="dark"] {
+:root[data-theme='dark'] {
   --sl-color-accent-low: #203d50;
   --sl-color-accent: #8ccef0;
   --sl-color-accent-high: #def4ff;
@@ -50,25 +49,17 @@
   --pathway-counselling: #213f37;
   --pathway-shared: #363049;
 }
-body { background: var(--sl-color-bg); }
-.header { border-bottom: 1px solid var(--pathway-line); }
-.site-title { letter-spacing: -.035em; font-weight: 760; }
-.site-title::before {
-  content: "";
-  display: inline-block;
-  vertical-align: middle;
-  background: url('/pathway-public-docs/pathway-symbol.svg') center / contain no-repeat;
-  width: 2rem; height: 2rem; margin-inline-end: .6rem;
-}
-.content-panel:has(.pathway-home) { border-top: 0; }
-body:has(.pathway-home) { --sl-content-width: 90rem; }
-body:has(.pathway-home) .hero { display: none; }
-body:has(.pathway-home) .sl-container:has(.pathway-home) { max-width: 100%; }
-body:has(.pathway-home) .content-panel:has(.pathway-home) { padding-top: 1rem; }
-/* The custom splash supplies its own accessible H1 and navigation. */
-body:has(.pathway-home) h1#_top { display:none; }
-body:has(.pathway-home) main .content-panel footer { display:none; }
-/* Let Starlight retain navigation, metadata, search and its article structure. */
+body { background:var(--sl-color-bg); }
+.page > header.header {padding:0!important;border-bottom:0!important;background:var(--sl-color-bg-nav);}
+body:has(.pathway-home) { --sl-content-width: 100%; }
+body:has(.pathway-home) .main-frame {padding-inline-start:0;padding-top:var(--sl-nav-height);}
+body:has(.pathway-home) main > .content-panel:first-child {display:none;}
+body:has(.pathway-home) .content-panel:has(.pathway-home) {padding:0;border:0;}
+body:has(.pathway-home) .sl-container:has(.pathway-home) {max-width:100%;padding:0;}
+body:has(.pathway-home) .sl-markdown-content:has(.pathway-home) {max-width:100%;margin:0;padding:0;}
+body:has(.pathway-home) h1#_top {display:none;}
+body:has(.pathway-home) .hero {display:none;}
+body:has(.pathway-home) main .content-panel footer.sl-flex {display:none;}
 body:not(:has(.pathway-home)) .sl-markdown-content {
   max-width: 58rem;
   background: var(--pathway-card);
@@ -77,11 +68,10 @@ body:not(:has(.pathway-home)) .sl-markdown-content {
   padding: clamp(1.25rem,3vw,2.65rem);
   box-shadow: 0 8px 30px rgba(15,54,63,.035);
 }
-body:not(:has(.pathway-home)) .sl-markdown-content :is(h1,h2,h3) { letter-spacing: -.026em; }
-body:not(:has(.pathway-home)) .sl-markdown-content p,
-body:not(:has(.pathway-home)) .sl-markdown-content li { line-height: 1.74; }
-body:not(:has(.pathway-home)) .sl-markdown-content :is(table,blockquote) { max-width: 100%; }
-@media(max-width: 50rem) {
-  body:not(:has(.pathway-home)) .sl-markdown-content { padding: 1.25rem; }
-  .site-title::before { width: 1.65rem; height: 1.65rem; }
+body:not(:has(.pathway-home)) .sl-markdown-content :is(h1,h2,h3) {letter-spacing:-.026em;}
+body:not(:has(.pathway-home)) .sl-markdown-content :is(p,li) {line-height:1.74;}
+body:not(:has(.pathway-home)) .sl-markdown-content :is(table,blockquote) {max-width:100%;}
+@media (max-width:850px) {
+  :root {--sl-nav-height:193px;}
+  body:not(:has(.pathway-home)) .sl-markdown-content {padding:1.25rem;}
 }
