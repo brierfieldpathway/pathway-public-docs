@@ -17,3 +17,11 @@ The selected reference is the visual styleboard headed “Brierfield Pathway Doc
 ## Release decision
 
 This is a **design review branch**, not user approval to deploy. Do not merge a substantial visual redesign of the current live site without the owner's review. Keep GitHub issue #3 open until the actual first styleboard design is accepted.
+
+## Document reader design pass (17 October 2026)
+
+The selected first styleboard includes matching article/guide layouts, not only a homepage. The public reader therefore retains **native Astro Starlight's** working left navigation, headings, on-page links and responsive behaviour while using the selected direction's dark-blue serif article titles and body copy, white reading surface, muted dividers and quiet blue/teal active-navigation highlight. No custom reader framework or additional dependencies were introduced.
+
+The mobile header now leaves room for Starlight's existing menu control so the final **About** navigation link stays unobstructed. Example reader screenshots are in `docs/design-review/reader-light.jpg`, `reader-dark.jpg` and `reader-mobile.jpg`. The sample page is the existing curated public project directory; it contains no private documentation or invented approved procedures.
+
+**Release remains blocked on owner design approval:** this reader pass is part of open review PR #17 and does not imply authorisation to deploy.

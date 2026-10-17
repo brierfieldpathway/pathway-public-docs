@@ -1,4 +1,4 @@
-/* Faithful foundation for the selected 15 October Pathway prototype. */
+/* Shared visual identity from the selected first-of-three Pathway styleboards. */
 :root {
   --sl-nav-height: 109px;
   --sl-color-accent-low: #dff1f2;
@@ -71,6 +71,40 @@ body:not(:has(.pathway-home)) .sl-markdown-content {
 body:not(:has(.pathway-home)) .sl-markdown-content :is(h1,h2,h3) {letter-spacing:-.026em;}
 body:not(:has(.pathway-home)) .sl-markdown-content :is(p,li) {line-height:1.74;}
 body:not(:has(.pathway-home)) .sl-markdown-content :is(table,blockquote) {max-width:100%;}
+
+/* Reader pages retain native Starlight navigation while adopting the
+   editorial typography, calm surfaces and blue/teal details of design one. */
+body:not(:has(.pathway-home)) h1#_top {
+  font-family: Georgia, 'Times New Roman', serif;
+  color: var(--pathway-heading);
+  font-size: clamp(2rem,3vw,2.8rem);
+  line-height: 1.15;
+  letter-spacing: -.035em;
+  font-weight: 700;
+}
+body:not(:has(.pathway-home)) .sl-markdown-content {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 1.025rem;
+  border-color: var(--pathway-line);
+}
+body:not(:has(.pathway-home)) .sl-markdown-content :is(h2,h3) {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-weight: 700;
+  color: var(--pathway-heading);
+}
+body:not(:has(.pathway-home)) .sl-markdown-content :is(table,code,pre,button,.starlight-aside) {
+  font-family: var(--sl-font);
+}
+body:not(:has(.pathway-home)) .sidebar-pane a[aria-current='page'] {
+  background: var(--pathway-icon-bg);
+  color: var(--pathway-heading);
+  border-radius: 8px;
+  font-weight: 750;
+}
+body:not(:has(.pathway-home)) .right-sidebar-panel :is(h2,a) {
+  color: var(--pathway-muted);
+}
+
 @media (max-width:850px) {
   :root {--sl-nav-height:193px;}
   body:not(:has(.pathway-home)) .sl-markdown-content {padding:1.25rem;}
