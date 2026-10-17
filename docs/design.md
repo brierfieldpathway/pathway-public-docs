@@ -1,51 +1,27 @@
-# Public-site design implementation
+# Brierfield Pathway visual decision
 
-The **first clean-modern** Brierfield Pathway mock-up was selected on 15 October 2026. The homepage follows that original specification, rather than inventing a replacement design.
+**Approved direction:** design **1** of the **three original image concepts** supplied by the owner on 16 October 2026. The later plain-mint HTML prototype is **not** the authoritative design reference. Previous notes treating it as such are superseded.
 
-## Adopted design characteristics
+The selected reference is the visual styleboard headed “Brierfield Pathway Documentation and Help Centre”, with the circular countryside logo and a white, unmistakable winding path; a warm photographic landscape behind the homepage; dark-blue serif branding and headings; glass-white organisation cards with coloured icons; a compact popular-resources section; and matching light and dark presentations. Content and authentication behaviour in the static mock-up are illustrative only.
 
-- Soft pale green-blue landscape hero, original softly layered hill illustration, generous spacing and an immediately visible search field.
-- Four independently named organisation cards, using muted blue, cream, green and lilac backgrounds. Brierfield Pathway is shared documentation, **not** a legal parent.
-- Four task entry points and a separate list of currently available, genuinely public resources.
-- Large readable headings, accessible focus indicators, light/dark variants and four-column desktop and two-column mobile cards.
-- Starlight remains responsible for actual documentation navigation, keyboard shortcuts, Pagefind search and article routes.
+## Current preview implementation
 
-## Not ported from the original prototype
+- The circular brand mark is an actual crop of the owner's uploaded chosen styleboard, **not** a new invented SVG.
+- The wide hero uses a provisional independently licensed free photograph of UK countryside. It is **not** claimed to be the exact source photograph used in the generated concept. Credit: Jonny Gios, [Sunrise Over a Green Valley](https://unsplash.com/pt-br/fotografias/o-sol-brilha-intensamente-sobre-um-vale-verde-exuberante-KQQIglJhfuU), under the [Unsplash License](https://unsplash.com/license).
+- The photographic hero, central welcome/search, overlaid cards and serif identity follow concept 1's overall composition. Starlight supplies the *real* accessible documentation reader, mobile navigation, theme switching and local Pagefind index.
+- Brierfield Publishing uses the **gold outlined open-book icon** from the selected first styleboard, not a generic document glyph.
+- Four distinct areas remain independent entities, not subsidiaries of a fictional parent. Homepage resources point to curated, already-public pages or public GitHub repositories.
+- Excluded older Linux experiments and the personal maths course fork remain excluded. No simulated Mike/Debi login, client/clinical data, recovery secrets or unapproved guides are included.
+- Static site hosting remains on GitHub Pages. Cloudflare Access, CT206 and private documentation remain separate and unchanged.
 
-- Simulated “Mike”, “Debi” and “Public visitor” user selectors. There is no authenticated public/private toggle on this public site.
-- Illustrative procedures concerning backups, manuscript handling or confidential client forms. Fake procedure text must not be presented as an approved document.
-- Private inventory paths, internal network details, unpublished work, CT206 metadata and unreviewed sources.
+## Release decision
 
-## Publication scope
+This is a **design review branch**, not user approval to deploy. Do not merge a substantial visual redesign of the current live site without the owner's review. Keep GitHub issue #3 open until the actual first styleboard design is accepted.
 
-Homepage cards link only to this public site or independently verified public websites/repositories. Public and private publishing gates remain entirely separate. The restored original hillside design and layout are for visual review, **not final approval of a brand asset**.
+## Document reader design pass (17 October 2026)
 
-Track related design and access decisions in the coordinator's internal issue #17. The private documentation site remains unconfigured.
+The selected first styleboard includes matching article/guide layouts, not only a homepage. The public reader therefore retains **native Astro Starlight's** working left navigation, headings, on-page links and responsive behaviour while using the selected direction's dark-blue serif article titles and body copy, white reading surface, muted dividers and quiet blue/teal active-navigation highlight. No custom reader framework or additional dependencies were introduced.
 
-## Public project selection
+The mobile header now leaves room for Starlight's existing menu control so the final **About** navigation link stays unobstructed, and the existing Pagefind search button is available on mobile reading pages. Example reader screenshots are in `docs/design-review/reader-light.jpg`, `reader-dark.jpg` and `reader-mobile.jpg`. The sample page is the existing curated public project directory; it contains no private documentation or invented approved procedures.
 
-The directory is **editorially curated**. Public GitHub visibility does not automatically mean a repository belongs in documentation. Older personal experiments, learning-course forks and unrelated archival projects are excluded unless specifically approved for inclusion. Repository visibility and contents are never changed by editorial removal.
-
-## Direct prototype comparison (16 October 2026)
-
-The actual 15 October prototype HTML on the Debian IdeaPad was rendered and compared directly with the rebuilt site in a real Chromium browser. The prototype itself is **not copied into this public repository** because it includes simulated user identities and unapproved sample procedures.
-
-Matching elements: 78px branded header plus a 31px public-preview strip; original Browse/By organisation/By task/Recovery navigation; compact rolling-hill hero and searchable input; four compact pastel organisation cards; four compact task cards; six compact resource rows with organisation labels; and a simple footer. The public homepage retains real search, theme switching and Starlight reading pages.
-
-At a **1440px desktop width** both original prototype and rebuilt page place the hero at x=62px, y=144px, width=1316px, height=394.53px. At a **390px mobile width**, the rebuilt hero starts at y=209px and measures 454.86px high, closely matching the reference. Browser checks also covered 820px and 320px screens, with no horizontal overflow, functional search, one visible heading and theme controls.
-
-Deliberate differences: the original fake owner selector becomes a non-interactive *Public site* label; sample internal clinical, backup and publishing guides are replaced by links to six real public resources; no private website login is simulated. The public website continues to use Starlight for non-homepage article layouts.
-
-Overall design approval is still a separate user decision, tracked in coordinator issue #17 and this repository issue #3.
-## Wayfinding path restored (16 October 2026)
-
-The selected prototype's layered hills remain the main background. A **filled, two-edged winding footpath** is now layered into the hills as a decorative inline SVG, with light paving joints and a destination sign. It broadens into the foreground and narrows towards the horizon. It replaces the missing route motif without changing the prototype-matched hero dimensions or reintroducing the dotted, tentacle-like line. On narrow screens the path is subdued behind content.
-
-No external assets or new packages were added. The visual result was checked in Chromium at desktop and phone sizes; search, article navigation and dark mode remain functional. Overall design acceptance is still open in issue #3.
-## Recognisable pathway artwork (16 October 2026)
-
-The earlier narrow S-shaped mark was not an effective depiction of a pathway. User review explicitly rejected it even after deployment. The new artwork is a **broad footpath with perspective**: pale stone-coloured walking surface, clear left/right edges, paving joints, grassy banks and a distant signpost. The foreground is deliberately wide and the route narrows towards the hillside horizon.
-
-The SVG is purely decorative and embedded locally. It occupies the right side of the existing prototype-matched hero. The layout geometry, Starlight search, navigation and content have not changed. Mobile rendering uses reduced prominence behind the text, but the pathway remains visible. Visual acceptance is a **separate user decision**, not proven by build/CI checks.
-
-This supersedes the prior claim that the much narrower trail artwork had resolved the design feedback.
+**Release remains blocked on owner design approval:** this reader pass is part of open review PR #17 and does not imply authorisation to deploy.
