@@ -2,7 +2,7 @@
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const areas = [
   { id: 'labs', title: 'Brierfield Labs', icon: '⚙', description: 'Software development, infrastructure and technical reference.', href: base + '/labs/' },
-  { id: 'publishing', title: 'Brierfield Publishing', icon: '▤', description: 'Publishing projects, workflows and public resources.', href: base + '/publishing/' },
+  { id: 'publishing', title: 'Brierfield Publishing', icon: 'book-open', description: 'Publishing projects, workflows and public resources.', href: base + '/publishing/' },
   { id: 'inner', title: 'Inner Pathway', icon: '♡', description: 'The independent counselling practice and its public information.', href: base + '/inner-pathway/' },
   { id: 'shared', title: 'Shared Services', icon: '↗', description: 'Workstations, tools and approved common information.', href: base + '/shared-services/' },
 ];
@@ -38,7 +38,14 @@ const resources = [
     <div class="areas" id="pathway-organisations">
       {areas.map((area) => (
         <a class={'area area-' + area.id} href={area.href}>
-          <span class="area-symbol" aria-hidden="true">{area.icon}</span>
+          <span class="area-symbol" aria-hidden="true">
+            {area.icon === 'book-open' ? (
+              <svg class="open-book" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M16 8C12.2 5.7 8.6 5 3 5v20c5.2 0 9.2 1.1 13 3.4 3.8-2.3 7.8-3.4 13-3.4V5c-5.6 0-9.2.7-13 3Z"/>
+                <path d="M16 8v20"/>
+              </svg>
+            ) : area.icon}
+          </span>
           <h2>{area.title}</h2>
           <p>{area.description}</p>
           <span class="area-go" aria-hidden="true">↗</span>
@@ -137,6 +144,7 @@ const resources = [
   .area:hover,.resource-card:hover,.task-card:hover{transform:translateY(-2px);box-shadow:0 10px 26px rgba(18,48,61,.15)}
   .area-symbol{font-size:2rem;font-weight:600;line-height:1.1;color:#197ba8}
   .area-publishing .area-symbol{color:#cb923f}
+  .area-symbol .open-book{display:block;width:33px;height:33px}
   .area-inner .area-symbol{color:#438d76}
   .area-shared .area-symbol{color:#287ba0}
   .area h2{font-size:1rem;line-height:1.25;margin-top:11px;font-weight:740;color:#183442;}
@@ -190,6 +198,7 @@ const resources = [
     .area h2{font-size:.86rem;margin-top:6px}
     .area p{font-size:.73rem}
     .area-symbol{font-size:1.5rem}
+    .area-symbol .open-book{width:26px;height:26px}
     .resource-grid,.task-grid{gap:8px}
     .resource-card{min-height:84px;padding:10px;gap:7px}
     .resource-symbol{font-size:1.35rem}

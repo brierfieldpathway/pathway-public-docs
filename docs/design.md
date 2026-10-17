@@ -9,6 +9,7 @@ The selected reference is the visual styleboard headed “Brierfield Pathway Doc
 - The circular brand mark is an actual crop of the owner's uploaded chosen styleboard, **not** a new invented SVG.
 - The wide hero uses a provisional independently licensed free photograph of UK countryside. It is **not** claimed to be the exact source photograph used in the generated concept. Credit: Jonny Gios, [Sunrise Over a Green Valley](https://unsplash.com/pt-br/fotografias/o-sol-brilha-intensamente-sobre-um-vale-verde-exuberante-KQQIglJhfuU), under the [Unsplash License](https://unsplash.com/license).
 - The photographic hero, central welcome/search, overlaid cards and serif identity follow concept 1's overall composition. Starlight supplies the *real* accessible documentation reader, mobile navigation, theme switching and local Pagefind index.
+- Brierfield Publishing uses the **gold outlined open-book icon** from the selected first styleboard, not a generic document glyph.
 - Four distinct areas remain independent entities, not subsidiaries of a fictional parent. Homepage resources point to curated, already-public pages or public GitHub repositories.
 - Excluded older Linux experiments and the personal maths course fork remain excluded. No simulated Mike/Debi login, client/clinical data, recovery secrets or unapproved guides are included.
 - Static site hosting remains on GitHub Pages. Cloudflare Access, CT206 and private documentation remain separate and unchanged.
